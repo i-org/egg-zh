@@ -250,25 +250,25 @@ the index. \\{egg-wdir-diff-section-map}")
 
 (defconst egg-status-buffer-common-help-text
   (concat
-   (egg-text "Common Key Bindings:" 'egg-help-header-2)
+   (egg-text "快捷键:" 'egg-help-header-2)
    (egg-pretty-help-text
     "\\<egg-status-buffer-mode-map>\n"
-    "\\[egg-buffer-cmd-navigate-prev]:previous block  "
-    "\\[egg-buffer-cmd-navigate-next]:next block  "
-    "\\[egg-commit-log-edit]:commit staged modifications  "
-    "\\[egg-log]:show repo's history\n"
-    "\\[egg-stage-all-files]:stage all modifications  "
-    "\\[egg-unstage-all-files]:unstage all modifications  "
+    "\\[egg-buffer-cmd-navigate-prev]:上一块  "
+    "\\[egg-buffer-cmd-navigate-next]:下一块  "
+    "\\[egg-commit-log-edit]:提交已缓存改动  "
+    "\\[egg-log]:查看项目历史\n"
+    "\\[egg-stage-all-files]:缓存所有改动  "
+    "\\[egg-unstage-all-files]:取消所有缓存的改动  "
     "\\[egg-diff-ref]:diff other revision\n"
     "\\[egg-status-buffer-undo-wdir]: throw away ALL modifications  "
     "\\<egg-unstaged-diff-section-map>"
     "\\[egg-diff-section-cmd-revert-to-head]:throw away file's modifications\n"
     "\\<egg-hide-show-map>"
-    "\\[egg-section-cmd-toggle-hide-show]:hide/show block  "
-    "\\[egg-section-cmd-toggle-hide-show-children]:hide sub-blocks  "
+    "\\[egg-section-cmd-toggle-hide-show]:显/隐 块  "
+    "\\[egg-section-cmd-toggle-hide-show-children]:隐藏子块  "
     "\\<egg-buffer-mode-map>"
-    "\\[egg-buffer-cmd-refresh]:redisplay  "
-    "\\[egg-quit-buffer]:quit\n")))
+    "\\[egg-buffer-cmd-refresh]:刷新下  "
+    "\\[egg-quit-buffer]:退出本页\n")))
 
 (defconst egg-status-buffer-rebase-help-text
   (concat
@@ -313,13 +313,13 @@ the index. \\{egg-wdir-diff-section-map}")
 
 (defconst egg-diff-buffer-common-help-text
   (concat
-   (egg-text "Common Key Bindings:" 'egg-help-header-2)
+   (egg-text "快捷键:" 'egg-help-header-2)
    (egg-pretty-help-text
     "\\<egg-buffer-mode-map>\n"
-    "\\[egg-buffer-cmd-navigate-prev]:previous block  "
-    "\\[egg-buffer-cmd-navigate-next]:next block  "
-    "\\[egg-buffer-cmd-refresh]:redisplay  "
-    "\\[egg-quit-buffer]:quit\n")))
+    "\\[egg-buffer-cmd-navigate-prev]:上一块  "
+    "\\[egg-buffer-cmd-navigate-next]:下一块  "
+    "\\[egg-buffer-cmd-refresh]:刷新下  "
+    "\\[egg-quit-buffer]:退出本页\n")))
 
 (defconst egg-diff-buffer-diff-help-heading
   (egg-text "Extra Bindings for Diff blocks:" 'egg-help-header-2))

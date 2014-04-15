@@ -2727,15 +2727,15 @@ If INIT was not nil, then perform 1st-time initializations as well."
   (egg-status-popup-delta-menu event egg-status-buffer-staged-hunk-menu))
 
 
-(defconst egg-status-buffer-menu (make-sparse-keymap "Egg (Git)"))
+(defconst egg-status-buffer-menu (make-sparse-keymap "【成果-概况】"))
 
 (define-key egg-status-buffer-mode-map
-  [menu-bar egg-status-buffer-mode] (cons "Egg (Git)" egg-status-buffer-menu))
+  [menu-bar egg-status-buffer-mode] (cons "【成果-概况】" egg-status-buffer-menu))
 
 (let ((menu egg-status-buffer-menu))
-  (define-key menu [quit] '(menu-item "Close Status View" egg-quit-buffer))
-  (define-key menu [refresh] '(menu-item "Refresh Status View" egg-buffer-cmd-refresh))
-  (define-key menu [log] '(menu-item "Show Branch History" egg-log))
+  (define-key menu [quit] '(menu-item "关 项目概况" egg-quit-buffer))
+  (define-key menu [refresh] '(menu-item "刷新 项目概况" egg-buffer-cmd-refresh))
+  (define-key menu [log] '(menu-item "查看分支历史" egg-log))
   (define-key menu [sp3] '("--"))
   (define-key menu [rb-skip] '(menu-item "Skip Rebase Session's Current Commit"
                                          egg-buffer-selective-rebase-skip
@@ -2750,28 +2750,28 @@ If INIT was not nil, then perform 1st-time initializations as well."
   (define-key menu [delta] (list 'menu-item "Delta"
                                  egg-status-buffer-mode-delta-menu
                                  :enable '(egg-diff-at-point)))
-  (define-key menu [commit] '(menu-item "Commit Staged Changes"
+  (define-key menu [commit] '(menu-item "提交已存改动"
                                         egg-commit-log-edit))
-  (define-key menu [stage] '(menu-item "Stage All Modifications"
+  (define-key menu [stage] '(menu-item "缓存所有改动"
 				       egg-stage-all-files
 				       :enable (egg-wdir-dirty)))
-  (define-key menu [unstage] '(menu-item "UnStage All Staged Modifications"
+  (define-key menu [unstage] '(menu-item "撤出所有已缓存改动"
 					 egg-unstage-all-files
 					 :enable (egg-staged-changes)))
   (define-key menu [stage-untracked] '(menu-item "Stage All Untracked Files"
                                                  egg-stage-untracked-files))
   (define-key menu [sp1] '("--"))
-  (define-key menu [hide-all] '(menu-item "Hide All" egg-buffer-hide-all))
-  (define-key menu [show-all] '(menu-item "Show All" egg-buffer-show-all))
-  (define-key menu [hs] '(menu-item "Hide/Show Block"
+  (define-key menu [hide-all] '(menu-item "全隐藏" egg-buffer-hide-all))
+  (define-key menu [show-all] '(menu-item "全显示" egg-buffer-show-all))
+  (define-key menu [hs] '(menu-item "显/隐 块"
                                     egg-section-cmd-toggle-hide-show
                                     :enable (egg-navigation-at-point)))
-  (define-key menu [hs-sub] '(menu-item "Hide/Show SubBlocks"
+  (define-key menu [hs-sub] '(menu-item "显/隐 子块"
                                         egg-section-cmd-toggle-hide-show-children
                                         :enable (egg-navigation-at-point)))
-  (define-key menu [prev] '(menu-item "Goto Previous Block" egg-buffer-cmd-navigate-prev
+  (define-key menu [prev] '(menu-item "上一块" egg-buffer-cmd-navigate-prev
                                       :enable (egg-navigation-at-point)))
-  (define-key menu [next] '(menu-item "Goto Next Block" egg-buffer-cmd-navigate-next
+  (define-key menu [next] '(menu-item "下一块" egg-buffer-cmd-navigate-next
                                       :enable (egg-navigation-at-point))))
 
 (defvar egg-switch-to-buffer nil
@@ -4030,24 +4030,24 @@ Jump to line LINE if it's not nil."
 
 (defconst egg-log-style-help-text
   (concat
-   (egg-text "Common Key Bindings:" 'egg-help-header-2) "\n"
+   (egg-text "快捷键:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-style-buffer-map>"
-    "\\[egg-log-buffer-next-ref]:next thing  "
-    "\\[egg-log-buffer-prev-ref]:previous thing  "
-    "\\[egg-status]:show repo's status  "
-    "\\[egg-log]:show repo's history  "
-    "\\[egg-buffer-cmd-refresh]:redisplay  "
-    "\\[egg-quit-buffer]:quit\n" )
+    "\\[egg-log-buffer-next-ref]:下一条  "
+    "\\[egg-log-buffer-prev-ref]:上一条  "
+    "\\[egg-status]:查看项目概况  "
+    "\\[egg-log]:查看项目历史  "
+    "\\[egg-buffer-cmd-refresh]:刷新下  "
+    "\\[egg-quit-buffer]:关闭此页面\n" )
    (egg-text "Extra Key Bindings for a Commit line:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-secondary-log-commit-map>"
     "\\[egg-log-locate-commit]:locate commit in history  "
     "\\[egg-log-buffer-insert-commit]:load details  "
-    "\\[egg-section-cmd-toggle-hide-show]:hide/show details  "
+    "\\[egg-section-cmd-toggle-hide-show]:显/隐详情  "
     "\\[egg-section-cmd-toggle-hide-show-children]:hide sub-blocks\n"
     "\\[egg-log-buffer-anchor-head]:anchor HEAD  "
-    "\\[egg-log-buffer-checkout-commit]:checkout  "
+    "\\[egg-log-buffer-checkout-commit]:切换分支  "
     "\\[egg-log-buffer-tag-commit]:new tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag\n"
     )
@@ -5948,13 +5948,13 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
 ;; (define-key egg-log-local-ref-map [C-down-mouse-2] 'egg-popup-log-local-ref-menu)
 ;; (define-key egg-log-local-ref-map [C-mouse-2] 'egg-popup-log-local-ref-menu)
 
-(defconst egg-log-buffer-menu (make-sparse-keymap "Egg (Git)"))
+(defconst egg-log-buffer-menu (make-sparse-keymap "【成果-历史】"))
 
 (define-key egg-log-buffer-mode-map
-  [menu-bar egg-log-buffer-mode] (cons "Egg (Git)" egg-log-buffer-menu))
+  [menu-bar egg-log-buffer-mode] (cons "【成果-历史】" egg-log-buffer-menu))
 
 (let ((menu egg-log-buffer-menu))
-  (define-key menu [quit] '(menu-item "Close History View" egg-quit-buffer))
+  (define-key menu [quit] '(menu-item "关 History View" egg-quit-buffer))
   (define-key menu [refresh] '(menu-item "Refresh History View" egg-buffer-cmd-refresh))
   (define-key menu [pickaxe] '(menu-item "Search History for Changes"
                                          egg-search-changes))
@@ -5978,29 +5978,29 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
 
 (defconst egg-log-buffer-help-text
   (concat
-   (egg-text "Common Key Bindings:" 'egg-help-header-2)
+   (egg-text "快捷键：" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-buffer-mode-map>"
-    "\\[egg-log-buffer-next-ref]:next thing  "
-    "\\[egg-log-buffer-prev-ref]:previous thing  "
+    "\\[egg-log-buffer-next-ref]:下一条  "
+    "\\[egg-log-buffer-prev-ref]:上一条  "
     "\\[egg-search-changes]:search history  "
-    "\\[egg-status]:show repo's status  "
-    "\\[egg-buffer-cmd-refresh]:redisplay  "
-    "\\[egg-quit-buffer]:quit\n")
+    "\\[egg-status]:查看项目概况  "
+    "\\[egg-buffer-cmd-refresh]:刷新下  "
+    "\\[egg-quit-buffer]:关闭此页面\n")
    (egg-text "Extra Key Bindings for a Commit line:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-commit-map>"
     "\\[egg-log-buffer-insert-commit]:load details  "
-    "\\[egg-section-cmd-toggle-hide-show]:hide/show details "
+    "\\[egg-section-cmd-toggle-hide-show]:显/隐详情 "
     "\\[egg-section-cmd-toggle-hide-show-children]:hide sub-blocks  "
-    "\\[egg-log-buffer-checkout-commit]:checkout  "
+    "\\[egg-log-buffer-checkout-commit]:切换分支  "
     "\\[egg-log-buffer-start-new-branch]:start new branch\n"
     "\\[egg-log-buffer-anchor-head]:anchor HEAD  "
     "\\[egg-log-buffer-tag-commit]:new tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag  "
-    "\\[egg-log-buffer-create-new-branch]:create branch  "
+    "\\[egg-log-buffer-create-new-branch]:开新枝  "
     "\\[egg-log-buffer-diff-revs]:diff vs HEAD (or BASE)\n"
     "\\[egg-log-buffer-merge]:merge to HEAD  "
     "\\[egg-log-buffer-rebase]:rebase HEAD  "
@@ -6031,13 +6031,13 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
    (egg-pretty-help-text
     "\\<egg-log-diff-map>"
     "\\[egg-log-diff-cmd-visit-file-other-window]:visit version/line\n")
-   (egg-text "References:" 'egg-help-header-2) "\n"
-   (egg-text "local-branch" 'egg-branch-mono) " "
-   (egg-text "lightweight-tag" 'egg-tag-mono) " "
-   (egg-text "annotated-tag" 'egg-an-tag-mono) " "
-   (egg-text "remote/" 'egg-remote-mono)
-   (egg-text "branch" 'egg-branch-mono) " "
-   (egg-text "  HEAD  " 'egg-log-HEAD-name) " "
+   (egg-text "颜色含义:" 'egg-help-header-2) "\n"
+   (egg-text "本地枝干" 'egg-branch-mono) " "
+   (egg-text "节点" 'egg-tag-mono) " "
+   (egg-text "注释" 'egg-an-tag-mono) " "
+   (egg-text "远端/" 'egg-remote-mono)
+   (egg-text "枝干" 'egg-branch-mono) " "
+   (egg-text "  HEAD当前所在  " 'egg-log-HEAD-name) " "
    "\n"))
 
 
@@ -6349,25 +6349,25 @@ if FILE-NAME is non-nil, restrict the logs to the commits modifying FILE-NAME."
 
 (defconst egg-file-log-help-text
   (concat
-   (egg-text "Common Key Bindings:" 'egg-help-header-2) "\n"
+   (egg-text "快捷键:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-buffer-mode-map>"
-    "\\[egg-log-buffer-next-ref]:next thing  "
-    "\\[egg-log-buffer-prev-ref]:previous thing  "
-    "\\[egg-status]:show repo's status  "
-    "\\[egg-buffer-cmd-refresh]:redisplay  "
-    "\\[egg-quit-buffer]:quit\n" )
+    "\\[egg-log-buffer-next-ref]:下一条  "
+    "\\[egg-log-buffer-prev-ref]:上一条  "
+    "\\[egg-status]:查看项目概况  "
+    "\\[egg-buffer-cmd-refresh]:刷新下  "
+    "\\[egg-quit-buffer]:关闭此页面\n" )
    (egg-text "Extra Key Bindings for a Commit line:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-secondary-log-commit-map>"
     "\\[egg-log-locate-commit]:locate commit in history  "
     "\\[egg-log-buffer-insert-commit]:load details  "
-    "\\[egg-section-cmd-toggle-hide-show]:hide/show details  "
-    "\\[egg-section-cmd-toggle-hide-show-children]:hide sub-blocks\n"
+    "\\[egg-section-cmd-toggle-hide-show]:显/隐详情  "
+    "\\[egg-section-cmd-toggle-hide-show-children]:隐藏子块\n"
     "\\[egg-log-buffer-anchor-head]:anchor HEAD  "
-    "\\[egg-log-buffer-checkout-commit]:checkout  "
+    "\\[egg-log-buffer-checkout-commit]:切换分支  "
     "\\[egg-log-buffer-start-new-branch]:start new branch  "
-    "\\[egg-log-buffer-create-new-branch]:create branch\n"
+    "\\[egg-log-buffer-create-new-branch]:开新枝\n"
     "\\[egg-log-buffer-tag-commit]:new tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag\n"
     )
@@ -7478,7 +7478,7 @@ With C-u prefix, ask for confirmation before executing the next-action."
   (let* ((state (egg-repo-state :unstaged :staged :error-if-not-git))
          (desc (egg-describe-state state))
          (action (egg-guess-next-action desc)))
-    (concat "Next Action: "
+    (concat "下一步: "
             (cdr (assq action egg-action-menu-name-alist)))))
 
 (defun egg-file-next-action-menu-binding (&optional ignored)
@@ -7517,22 +7517,22 @@ With C-u prefix, ask for confirmation before executing the next-action."
   (define-key map (kbd "~") 'egg-file-version-other-window)
   )
 
-(defconst egg-minor-mode-menu (make-sparse-keymap "Egg (Git)"))
+(defconst egg-minor-mode-menu (make-sparse-keymap "【成果管理】"))
 (define-key egg-minor-mode-map [menu-bar egg-minor-mode-menu]
-  (cons "Egg (Git)" egg-minor-mode-menu))
+  (cons "【成果管理】" egg-minor-mode-menu))
 
 (let ((menu egg-minor-mode-menu))
-  (define-key menu [reflog] '(menu-item "View RefLog" egg-reflog))
-  (define-key menu [log] '(menu-item "View Project History" egg-log))
-  (define-key menu [status] '(menu-item "View Project Status" egg-status))
-  (define-key menu [blame] '(menu-item "Toggle Blame Mode" egg-file-toggle-blame-mode))
+  (define-key menu [reflog] '(menu-item "看分支版本历史" egg-reflog))
+  (define-key menu [log] '(menu-item "看项目历史" egg-log))
+  (define-key menu [status] '(menu-item "看项目概况" egg-status))
+  (define-key menu [blame] '(menu-item "开关单页递增模式" egg-file-toggle-blame-mode))
   (define-key menu [sp3] '("--"))
   (define-key menu [grep] '(menu-item "Search Project's Other Versions (grep)" egg-grep))
   (define-key menu [pickaxe] '(menu-item "Search File History" egg-file-log-pickaxe))
   (define-key menu [vother] '(menu-item "View File Other Version" egg-file-version-other-window))
-  (define-key menu [filelog] '(menu-item "View File History" egg-file-log))
+  (define-key menu [filelog] '(menu-item "查看文件历史" egg-file-log))
   (define-key menu [sp2] '("--"))
-  (define-key menu [cother] '(menu-item "Checkout File's Other Version" egg-file-checkout-other-version))
+  (define-key menu [cother] '(menu-item "转分支看此文件" egg-file-checkout-other-version))
   (define-key menu [ediff]
     '(menu-item "EDiff File (vs INDEX)" egg-file-ediff
                 :enable (not (egg-file-updated (buffer-file-name)))))
@@ -7544,10 +7544,10 @@ With C-u prefix, ask for confirmation before executing the next-action."
     '(menu-item "Cancel Modifications (revert to INDEX)" egg-file-cancel-modifications
                 :enable (not (egg-file-updated (buffer-file-name)))))
   (define-key menu [commit]
-    '(menu-item "Commit Staged Changes" egg-commit-log-edit
+    '(menu-item "提交已缓存改动Commit Staged Changes" egg-commit-log-edit
                 :enable (not (egg-file-index-empty (buffer-file-name)))))
   (define-key menu [stage]
-    '(menu-item "Stage File's Modifications" egg-file-stage-current-file
+    '(menu-item "缓存已改文件Stage File's Modifications" egg-file-stage-current-file
                 :enable (not (egg-file-updated (buffer-file-name)))))
   (define-key menu [sp0] '("--"))
   (define-key menu [next]
