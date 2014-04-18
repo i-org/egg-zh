@@ -259,8 +259,8 @@ the index. \\{egg-wdir-diff-section-map}")
     "\\[egg-log]:查看项目历史\n"
     "\\[egg-stage-all-files]:缓存所有改动  "
     "\\[egg-unstage-all-files]:取消所有缓存的改动  "
-    "\\[egg-diff-ref]:diff other revision\n"
-    "\\[egg-status-buffer-undo-wdir]: throw away ALL modifications  "
+    "\\[egg-diff-ref]:查看其他版本\n"
+    "\\[egg-status-buffer-undo-wdir]: 撤销未缓存改动  "
     "\\<egg-unstaged-diff-section-map>"
     "\\[egg-diff-section-cmd-revert-to-head]:throw away file's modifications\n"
     "\\<egg-hide-show-map>"
@@ -272,7 +272,7 @@ the index. \\{egg-wdir-diff-section-map}")
 
 (defconst egg-status-buffer-rebase-help-text
   (concat
-   (egg-text "Key Bindings for Rebase Operations:" 'egg-help-header-2)
+   (egg-text "Rebase 部分的快捷键:" 'egg-help-header-2)
    (egg-pretty-help-text
     "\\<egg-status-buffer-rebase-map>\n"
     "\\[egg-buffer-selective-rebase-continue]:resume rebase  "
@@ -281,11 +281,11 @@ the index. \\{egg-wdir-diff-section-map}")
 
 (defconst egg-status-buffer-diff-help-text
   (concat
-   (egg-text "Extra Key Bindings for the Diff Sections:"
+   (egg-text "Diff 部分的快捷键:"
              'egg-help-header-2)
    (egg-pretty-help-text
     "\\<egg-unstaged-diff-section-map>\n"
-    "\\[egg-diff-section-cmd-visit-file-other-window]:visit file/line  "
+    "\\[egg-diff-section-cmd-visit-file-other-window]:查看文件对应行  "
     "\\[egg-diff-section-cmd-stage]:stage/unstage file/hunk/selected area  "
     "\\[egg-diff-section-cmd-undo]:undo file/hunk's modifications\n")))
 
@@ -322,39 +322,39 @@ the index. \\{egg-wdir-diff-section-map}")
     "\\[egg-quit-buffer]:退出本页\n")))
 
 (defconst egg-diff-buffer-diff-help-heading
-  (egg-text "Extra Bindings for Diff blocks:" 'egg-help-header-2))
+  (egg-text "Diff 部分的快捷键:" 'egg-help-header-2))
 
 (defconst egg-unstaged-diff-help-text
   (egg-pretty-help-text
    "\\<egg-unstaged-diff-section-map>\n"
    "\\[egg-diff-section-cmd-stage]:stage file/hunk  "
    "\\[egg-diff-section-cmd-undo]:undo file/hunk  "
-   "\\[egg-diff-section-cmd-visit-file-other-window]:visit file/line\n"))
+   "\\[egg-diff-section-cmd-visit-file-other-window]:查看文件和对应行\n"))
 
 (defconst egg-staged-diff-help-text
   (egg-pretty-help-text
    "\\<egg-staged-diff-section-map>\n"
    "\\[egg-diff-section-cmd-stage]:unstage file/hunk  "
-   "\\[egg-diff-section-cmd-visit-file-other-window]:visit file/line\n"))
+   "\\[egg-diff-section-cmd-visit-file-other-window]:查看文件和对应行\n"))
 
 (defconst egg-plain-diff-help-text
   (egg-pretty-help-text
    "\\<egg-diff-section-map>\n"
-   "\\[egg-diff-section-cmd-visit-file-other-window]:visit file/line\n"))
+   "\\[egg-diff-section-cmd-visit-file-other-window]:查看文件和对应行\n"))
 
 (defconst egg-wdir-diff-help-text
   (egg-pretty-help-text
    "\\<egg-wdir-diff-section-map>\n"
    "\\[egg-diff-section-cmd-undo]:undo file/hunk  "
-   "\\[egg-diff-section-cmd-visit-file-other-window]:visit file/line\n"))
+   "\\[egg-diff-section-cmd-visit-file-other-window]:查看文件和对应行\n"))
 
 (defconst egg-stash-help-text
   (concat
-   (egg-text "Extra Key Bindings for a Stash line:" 'egg-help-header-2) "\n"
+   (egg-text "Stash 部分快捷键:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-stash-map>"
-    "\\[egg-sb-buffer-show-stash]:load details  "
-    ;; "\\[egg-section-cmd-toggle-hide-show]:hide/show details  "
+    "\\[egg-sb-buffer-show-stash]:载入详情  "
+    ;; "\\[egg-section-cmd-toggle-hide-show]:显/隐 详情  "
     "\\[egg-sb-buffer-apply-stash]:apply  "
     "\\[egg-sb-buffer-pop-stash]:pop and apply stash "
     "\\[egg-sb-buffer-drop-stash]:delete stash  "

@@ -44,6 +44,8 @@ help the user performing many git operations.
 The design of the status-buffer Egg was borrowed/stolen from Magit. Egg,
 however has much more functionalities than the status buffer. 
 
+操作起来感觉还不错，因此，就试图把操作提示翻译成中文，方便新手。
+
 ## MAGIT
 
 Magit is an interface to the version control system Git, implemented
