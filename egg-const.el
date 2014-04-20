@@ -254,12 +254,12 @@ the index. \\{egg-wdir-diff-section-map}")
     "\\<egg-status-buffer-mode-map>\n"
     "\\[egg-buffer-cmd-navigate-prev]:上一块  "
     "\\[egg-buffer-cmd-navigate-next]:下一块  "
-    "\\[egg-commit-log-edit]:接纳已缓存的改动  "
+    "\\[egg-commit-log-edit]:立案commit  "
     "\\[egg-log]:看项目历史\n"
-    "\\[egg-stage-all-files]:缓存所有改动  "
-    "\\[egg-unstage-all-files]:撤出所有缓存的改动  "
+    "\\[egg-stage-all-files]:提交所有改动stage  "
+    "\\[egg-unstage-all-files]:撤出所有提交的改动  "
     "\\[egg-diff-ref]:查看其他版本\n"
-    "\\[egg-status-buffer-undo-wdir]: 撤销未缓存改动  "
+    "\\[egg-status-buffer-undo-wdir]: 撤销未提交的改动  "
     "\\<egg-unstaged-diff-section-map>"
     "\\[egg-diff-section-cmd-revert-to-head]:throw away file's modifications\n"
     "\\<egg-hide-show-map>"
@@ -285,7 +285,7 @@ the index. \\{egg-wdir-diff-section-map}")
    (egg-pretty-help-text
     "\\<egg-unstaged-diff-section-map>\n"
     "\\[egg-diff-section-cmd-visit-file-other-window]:查看文件对应行  "
-    "\\[egg-diff-section-cmd-stage]:缓存/撤出缓存 文件/hunk/选择的区域  "
+    "\\[egg-diff-section-cmd-stage]:提案/撤出提案 文件/hunk/选择的区域  "
     "\\[egg-diff-section-cmd-undo]:撤销 文件/hunk的改动\n")))
 
 (defconst egg-untracked-file-map
@@ -326,14 +326,14 @@ the index. \\{egg-wdir-diff-section-map}")
 (defconst egg-unstaged-diff-help-text
   (egg-pretty-help-text
    "\\<egg-unstaged-diff-section-map>\n"
-   "\\[egg-diff-section-cmd-stage]:缓存 文件/hunk  "
+   "\\[egg-diff-section-cmd-stage]:提交 文件/hunk  "
    "\\[egg-diff-section-cmd-undo]:undo file/hunk  "
    "\\[egg-diff-section-cmd-visit-file-other-window]:查看文件和对应行\n"))
 
 (defconst egg-staged-diff-help-text
   (egg-pretty-help-text
    "\\<egg-staged-diff-section-map>\n"
-   "\\[egg-diff-section-cmd-stage]:撤出缓存的文件/hunk  "
+   "\\[egg-diff-section-cmd-stage]:撤出提交的文件/hunk  "
    "\\[egg-diff-section-cmd-visit-file-other-window]:查看文件和对应行\n"))
 
 (defconst egg-plain-diff-help-text

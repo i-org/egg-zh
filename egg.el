@@ -2548,12 +2548,12 @@ If INIT was not nil, then perform 1st-time initializations as well."
 		 (egg-sb-insert-unstaged-section 
 		  (cond ((consp egg-status-buffer-interactive-stash-info) "To be Removed:")
 			((egg-is-merging state) "Unmerged Changes:")
-			(t "未缓存改动:"))))
+			(t "未提交改动:"))))
                 ((eq sect 'staged) 
 		 (egg-sb-insert-staged-section 
 		  (cond ((consp egg-status-buffer-interactive-stash-info) "To be Stashed:")
 			((egg-is-merging state) "Merged Changes:")
-			(t "已缓存改动:"))))
+			(t "已提交改动:"))))
                 ((eq sect 'untracked) (egg-sb-insert-untracked-section))
 		((eq sect 'stash) (egg-sb-insert-stash-section))))
         (egg-calculate-hunk-ranges)
@@ -2750,15 +2750,15 @@ If INIT was not nil, then perform 1st-time initializations as well."
   (define-key menu [delta] (list 'menu-item "Delta"
                                  egg-status-buffer-mode-delta-menu
                                  :enable '(egg-diff-at-point)))
-  (define-key menu [commit] '(menu-item "提交已存改动"
+  (define-key menu [commit] '(menu-item "立案"
                                         egg-commit-log-edit))
-  (define-key menu [stage] '(menu-item "缓存所有改动"
+  (define-key menu [stage] '(menu-item "提交所有改动"
 				       egg-stage-all-files
 				       :enable (egg-wdir-dirty)))
-  (define-key menu [unstage] '(menu-item "撤除所有已缓存改动"
+  (define-key menu [unstage] '(menu-item "撤除所有已提交改动"
 					 egg-unstage-all-files
 					 :enable (egg-staged-changes)))
-  (define-key menu [stage-untracked] '(menu-item "纳入并缓存所有未被跟踪文件"
+  (define-key menu [stage-untracked] '(menu-item "纳入并提交所有未被跟踪文件"
                                                  egg-stage-untracked-files))
   (define-key menu [sp1] '("--"))
   (define-key menu [hide-all] '(menu-item "全隐藏" egg-buffer-hide-all))
@@ -7234,12 +7234,12 @@ If ASK-FOR-DST is non-nil, then compare the file's contents in 2 different revs.
 
 (defconst egg-action-menu-name-alist
   '((:merge-file	. "Resolve File's Merge Conflicts using Ediff")
-    (:stage-file	. "缓存文件所有改动")
+    (:stage-file	. "提交文件所有改动")
     (:status		. "查看项目状态")
-    (:stage-all		. "缓存项目所有改动")
+    (:stage-all		. "提交项目所有改动")
     (:rebase-continue	. "Continue Rebase Session")
     (:diff-file		. "查看文件所有改动 (Diff)")
-    (:commit		. "提交已缓存改动")
+    (:commit		. "立案")
     (:sync		. "查看项目进度")
     (:new-branch	. "开+进入新枝")))
 
@@ -7544,10 +7544,10 @@ With C-u prefix, ask for confirmation before executing the next-action."
     '(menu-item "撤销改动 (还原到 INDEX)" egg-file-cancel-modifications
                 :enable (not (egg-file-updated (buffer-file-name)))))
   (define-key menu [commit]
-    '(menu-item "提交已缓存改动" egg-commit-log-edit
+    '(menu-item "立案" egg-commit-log-edit
                 :enable (not (egg-file-index-empty (buffer-file-name)))))
   (define-key menu [stage]
-    '(menu-item "缓存已改文件" egg-file-stage-current-file
+    '(menu-item "提交已改文件" egg-file-stage-current-file
                 :enable (not (egg-file-updated (buffer-file-name)))))
   (define-key menu [sp0] '("--"))
   (define-key menu [next]
@@ -7570,11 +7570,11 @@ With C-u prefix, ask for confirmation before executing the next-action."
 egg in current buffer.\\<egg-minor-mode-map>
 \\[egg-start-new-branch] 在当前的HEAD上开新枝
 \\[egg-status] 看项目概况
-\\[egg-commit-log-edit] start editing the commit message for the current staged changes.
-\\[egg-file-stage-current-file] stage new changes of the current file
+\\[egg-commit-log-edit] 立案
+\\[egg-file-stage-current-file] 提交本文件的改动
 \\[egg-log] 看项目历史
 \\[egg-file-checkout-other-version] checkout another version of the current file
-\\[egg-file-cancel-modifications] delete unstaged modifications in the current file
+\\[egg-file-cancel-modifications] 撤除本文未提交的改动
 \\[egg-next-action] perform the next logical action
 \\[egg-file-diff] compare file with index or other commits
 \\[egg-file-version-other-window] show other version of the current file.
