@@ -1,6 +1,10 @@
 # Egg (Emacs Got Git).
 
-易码肆常用的版本管理工具，交互界面友好，中文化且调整了菜单。
+易码肆常用的版本管理工具，功能较全，交互界面友好，主要操作流程有提示操作，
+绝大部分操作有直观的提示，这样可以不用去记复杂的命令，直观使用git的绝大部分功能。
+对新手来手比较方便，容易上手。
+
+个人把操作提示都翻译成中文，且调整了有些布局不合理的菜单。
 
 ## Intro
 
@@ -41,14 +45,11 @@ help the user performing many git operations.
   gpg-signature can also be enabled.
 - egg's diff-buffer: used to view the delta between file or repo revisions.
 
-## History
+ 
 
-The design of the status-buffer Egg was borrowed/stolen from Magit. Egg,
-however has much more functionalities than the status buffer. 
+## Thanks to MAGIT
 
-功能较全，有直观的提示，对新手来说比较方便，因此，把操作提示翻译成中文，方便新手。
-
-## MAGIT
-
+The design of the status-buffer Egg was borrowed/stolen from Magit.
+however has much more functionalities than the status buffer.
 Magit is an interface to the version control system Git, implemented
 by Marius Voller. His code at: http://philjackson.github.com/magit/
