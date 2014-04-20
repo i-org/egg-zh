@@ -1751,7 +1751,7 @@ adding the contents."
 (defun egg-sb-insert-untracked-section ()
   "Insert the untracked files section into the status buffer."
   (let ((beg (point)) inv-beg end)
-    (insert (egg-prepend "Untracked Files:" "\n\n"
+    (insert (egg-prepend "未纳入管理的文件:" "\n\n"
                          'face 'egg-section-title
                          'help-echo (egg-tooltip-func))
             "\n")
@@ -2548,12 +2548,12 @@ If INIT was not nil, then perform 1st-time initializations as well."
 		 (egg-sb-insert-unstaged-section 
 		  (cond ((consp egg-status-buffer-interactive-stash-info) "To be Removed:")
 			((egg-is-merging state) "Unmerged Changes:")
-			(t "Unstaged Changes:"))))
+			(t "未缓存改动:"))))
                 ((eq sect 'staged) 
 		 (egg-sb-insert-staged-section 
 		  (cond ((consp egg-status-buffer-interactive-stash-info) "To be Stashed:")
 			((egg-is-merging state) "Merged Changes:")
-			(t "Staged Changes:"))))
+			(t "已缓存改动:"))))
                 ((eq sect 'untracked) (egg-sb-insert-untracked-section))
 		((eq sect 'stash) (egg-sb-insert-stash-section))))
         (egg-calculate-hunk-ranges)
