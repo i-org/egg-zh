@@ -220,7 +220,7 @@ the index. \\{egg-wdir-diff-section-map}")
     (define-key map (kbd "b") 'egg-start-new-branch)
     (define-key map (kbd "o") 'egg-status-buffer-checkout-ref)
     (define-key map (kbd "w") 'egg-status-buffer-stash-wip)
-    (define-key map (kbd "G") 'egg-status)
+    (define-key map (kbd "g") 'egg-status)
     (define-key map (kbd "L") 'egg-reflog)
     (define-key map (kbd "S") 'egg-stage-all-files)
     (define-key map (kbd "U") 'egg-unstage-all-files)
@@ -255,10 +255,10 @@ the index. \\{egg-wdir-diff-section-map}")
     "\\<egg-status-buffer-mode-map>\n"
     "\\[egg-buffer-cmd-navigate-prev]:上一块  "
     "\\[egg-buffer-cmd-navigate-next]:下一块  "
-    "\\[egg-commit-log-edit]:保存已缓存改动  "
+    "\\[egg-commit-log-edit]:接纳已缓存的改动  "
     "\\[egg-log]:看项目历史\n"
     "\\[egg-stage-all-files]:缓存所有改动  "
-    "\\[egg-unstage-all-files]:取消所有缓存的改动  "
+    "\\[egg-unstage-all-files]:取消所有呈上的改动  "
     "\\[egg-diff-ref]:查看其他版本\n"
     "\\[egg-status-buffer-undo-wdir]: 撤销未缓存改动  "
     "\\<egg-unstaged-diff-section-map>"
