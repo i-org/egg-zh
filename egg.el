@@ -5774,7 +5774,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
 
 (defun egg-log-make-commit-line-menu (&optional heading)
   (let ((map (make-sparse-keymap heading)))
-    (define-key map [load] (list 'menu-item "(Re)Load Commit Details"
+    (define-key map [load] (list 'menu-item "载入 Commit 详情"
                                  'egg-log-buffer-insert-commit
                                  :visible '(egg-commit-at-point)))
     (define-key map [diff] (list 'menu-item "Compare against HEAD (or BASE)"
@@ -5789,7 +5789,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     (define-key map [hs] (list 'menu-item "显/隐详情"
                                'egg-section-cmd-toggle-hide-show
                                :visible '(egg-navigation-at-point)))
-    (define-key map [hs-sub] (list 'menu-item "Hide/Show Details of Subsections"
+    (define-key map [hs-sub] (list 'menu-item "显/隐 subsections详情"
                                    'egg-section-cmd-toggle-hide-show-children
                                    :visible '(egg-navigation-at-point)))
     (define-key map [sp9] '("--"))
@@ -5803,11 +5803,11 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
                                   'egg-log-buffer-fetch-remote-ref
                                   :visible '(egg-ref-at-point)
                                   :enable '(egg-remote-at-point)))
-    (define-key map [ldown] (list 'menu-item "Push HEAD To Ref"
+    (define-key map [ldown] (list 'menu-item "用 HEAD 同步 Ref push"
                                   'egg-log-buffer-push-head-to-local
                                   :visible '(egg-ref-at-point)
                                   :enable '(not (egg-remote-at-point))))
-    (define-key map [upload] (list 'menu-item "Push Ref to Remote"
+    (define-key map [upload] (list 'menu-item "把 Ref 投递给 Remote push"
                                    'egg-log-buffer-push-to-remote
                                    :visible '(egg-ref-at-point)
                                    :enable '(not (egg-remote-at-point))))
@@ -5845,17 +5845,17 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     (define-key map [rh-4] (list 'menu-item "Anchor HEAD (ignore changes)"
                                  'egg-log-commit-line-menu-attach-head-ignore-changes
                                  :visible '(egg-commit-at-point)))
-    (define-key map [rh-0] (list 'menu-item "Anchor HEAD"
+    (define-key map [rh-0] (list 'menu-item "HEAD调转到..."
                                  'egg-log-buffer-anchor-head
                                  :visible '(egg-commit-at-point)))
     (define-key map [sp2] '("--"))
     (define-key map [reflog] (list 'menu-item "Show Ref History (Reflog)"
                                    'egg-log-buffer-reflog-ref
                                    :visible '(egg-ref-at-point)))
-    (define-key map [rm-ref] (list 'menu-item "Remove Ref "
+    (define-key map [rm-ref] (list 'menu-item "删除分支 Ref "
                                    'egg-log-buffer-rm-ref
                                    :visible '(egg-ref-at-point)))
-    (define-key map [cb] (list 'menu-item "Create New Branch"
+    (define-key map [cb] (list 'menu-item "开新枝"
                                'egg-log-buffer-create-new-branch
                                :visible '(egg-commit-at-point)))
     (define-key map [co-dh] (list 'menu-item "Detach HEAD and Checkout"
@@ -5863,7 +5863,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
 				  :enable ' (not (egg-head-at-point))
                                   :visible '(egg-commit-at-point)))
     (define-key map [sp1] '("--"))
-    (define-key map [sb] (list 'menu-item "Start New Branch"
+    (define-key map [sb] (list 'menu-item "开+进入新枝"
                                'egg-log-buffer-start-new-branch
                                :visible '(egg-commit-at-point)))
     (define-key map [co] (list 'menu-item "切换分支或节点"
@@ -5996,11 +5996,11 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-section-cmd-toggle-hide-show]:显/隐详情 "
     "\\[egg-section-cmd-toggle-hide-show-children]:隐藏子块  "
     "\\[egg-log-buffer-checkout-commit]:切换 分支或节点  "
-    "\\[egg-log-buffer-start-new-branch]:start new branch\n"
-    "\\[egg-log-buffer-anchor-head]:HEAD转到...  "
+    "\\[egg-log-buffer-start-new-branch]:开+进入新枝\n"
+    "\\[egg-log-buffer-anchor-head]:HEAD调转到...  "
     "\\[egg-log-buffer-tag-commit]:设新进度重点tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag  "
-    "\\[egg-log-buffer-create-new-branch]:开新枝  "
+    "\\[egg-log-buffer-create-new-branch]:开新追随枝  "
     "\\[egg-log-buffer-diff-revs]:对比 vs HEAD (或 BASE)\n"
     "\\[egg-log-buffer-merge]:并入 HEAD  "
     "\\[egg-log-buffer-rebase]:rebase HEAD  "
@@ -6021,12 +6021,12 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
    (egg-pretty-help-text
     "\\<egg-log-local-ref-map>"
     "\\[egg-log-buffer-rm-ref]:删除分支 ref  "
-    "\\[egg-log-buffer-push-to-local]:把ref push到 HEAD (或者本地 ref)  "
-    "\\[egg-log-buffer-push-head-to-local]:把 HEAD push到 ref\n"
-    "\\[egg-log-buffer-push-to-remote]:投递给远端push  "
+    "\\[egg-log-buffer-push-to-local]:用ref 同步 HEAD (或者本地 ref)push  "
+    "\\[egg-log-buffer-push-head-to-local]:用 HEAD 同步 ref：push\n"
+    "\\[egg-log-buffer-push-to-remote]:投递给远端 push  "
     "\\<egg-log-remote-branch-map>"
     "\\[egg-log-buffer-fetch-remote-ref]:从远端获取fetch\n")
-   (egg-text "Diff 部分的快捷键:" 'egg-help-header-2)
+   (egg-text "差异 Diff 部分的快捷键:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-diff-map>"
@@ -6034,10 +6034,10 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
    (egg-text "颜色含义:" 'egg-help-header-2) "\n"
    (egg-text "本地枝干" 'egg-branch-mono) " "
    (egg-text "节点" 'egg-tag-mono) " "
-   (egg-text "注释" 'egg-an-tag-mono) " "
+   (egg-text "自动提案名" 'egg-an-tag-mono) " "
    (egg-text "远端/" 'egg-remote-mono)
    (egg-text "枝干" 'egg-branch-mono) " "
-   (egg-text "  HEAD当前所在  " 'egg-log-HEAD-name) " "
+   (egg-text "  当前开发点所在 HEAD  " 'egg-log-HEAD-name) " "
    "\n"))
 
 
@@ -6177,7 +6177,7 @@ if FILE-NAME is non-nil, restrict the logs to the commits modifying FILE-NAME."
           (egg-repo-state (if (invoked-interactively-p) :error-if-not-git)))
          (default-directory (egg-work-tree-dir 
 			     (egg-git-dir (invoked-interactively-p))))
-	 (description (concat (egg-text "history scope: " 'egg-text-2)
+	 (description (concat (egg-text "当前角度为: " 'egg-text-2)
 			      (if ref-name 
 				  (egg-text ref-name 'egg-term)
 				(egg-text "all refs" 'egg-term))))
@@ -6361,14 +6361,14 @@ if FILE-NAME is non-nil, restrict the logs to the commits modifying FILE-NAME."
    (egg-pretty-help-text
     "\\<egg-secondary-log-commit-map>"
     "\\[egg-log-locate-commit]:locate commit in history  "
-    "\\[egg-log-buffer-insert-commit]:load details  "
+    "\\[egg-log-buffer-insert-commit]:载入详情  "
     "\\[egg-section-cmd-toggle-hide-show]:显/隐详情  "
     "\\[egg-section-cmd-toggle-hide-show-children]:隐藏子块\n"
-    "\\[egg-log-buffer-anchor-head]:anchor HEAD  "
+    "\\[egg-log-buffer-anchor-head]:HEAD调转到...  "
     "\\[egg-log-buffer-checkout-commit]:切换分支或节点  "
-    "\\[egg-log-buffer-start-new-branch]:start new branch  "
+    "\\[egg-log-buffer-start-new-branch]:开+进入新枝  "
     "\\[egg-log-buffer-create-new-branch]:开新枝\n"
-    "\\[egg-log-buffer-tag-commit]:new tag  "
+    "\\[egg-log-buffer-tag-commit]:设新进度重点tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag\n"
     )
    (egg-text "Diff 部分的快捷键:" 'egg-help-header-2) "\n"
@@ -7064,9 +7064,9 @@ That's the CONFIRM-P paramter in non-interactive use."
 	 (rev (or (egg-get-symbolic-HEAD) (egg-HEAD)))
 	 (force (if force "-B" "-b"))
 	 name track)
-    (setq name (read-string (format "start new branch from %s with name: " rev)))
+    (setq name (read-string (format "在 %s 上开新枝，名叫: " rev)))
     (setq track (if (and upstream
-			 (y-or-n-p (format "should the branch '%s' track '%s'"
+			 (y-or-n-p (format "让新分支 '%s' 跟踪 '%s'"
 					   name upstream)))
 		    "--track"
 		  "--no-track"))
@@ -7241,7 +7241,7 @@ If ASK-FOR-DST is non-nil, then compare the file's contents in 2 different revs.
     (:diff-file		. "查看文件所有改动 (Diff)")
     (:commit		. "提交已缓存改动")
     (:sync		. "查看项目进度")
-    (:new-branch	. "Start a New Branch")))
+    (:new-branch	. "开+进入新枝")))
 
 (defconst egg-electrict-select-action-buffer
   (get-buffer-create "*Egg:Select Action*"))
@@ -7568,11 +7568,11 @@ With C-u prefix, ask for confirmation before executing the next-action."
 (defun egg-minor-mode (&optional arg)
   "Turn-on egg-minor-mode which would enable key bindings for
 egg in current buffer.\\<egg-minor-mode-map>
-\\[egg-start-new-branch] start a new branch from the current HEAD.
-\\[egg-status] shows the repo's current status
+\\[egg-start-new-branch] 在当前的HEAD上开新枝
+\\[egg-status] 看项目概况
 \\[egg-commit-log-edit] start editing the commit message for the current staged changes.
 \\[egg-file-stage-current-file] stage new changes of the current file
-\\[egg-log] shows repo's history
+\\[egg-log] 看项目历史
 \\[egg-file-checkout-other-version] checkout another version of the current file
 \\[egg-file-cancel-modifications] delete unstaged modifications in the current file
 \\[egg-next-action] perform the next logical action
