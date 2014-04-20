@@ -1,5 +1,7 @@
 # Egg (Emacs Got Git).
 
+易码肆常用的版本管理工具，交互界面友好，中文化且调整了菜单。
+
 ## Intro
 
 Egg is an Emacs interface to git. It's a suite composed of a

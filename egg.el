@@ -2758,7 +2758,7 @@ If INIT was not nil, then perform 1st-time initializations as well."
   (define-key menu [unstage] '(menu-item "撤除所有已缓存改动"
 					 egg-unstage-all-files
 					 :enable (egg-staged-changes)))
-  (define-key menu [stage-untracked] '(menu-item "缓存所有未被跟踪文件"
+  (define-key menu [stage-untracked] '(menu-item "纳入并缓存所有未被跟踪文件"
                                                  egg-stage-untracked-files))
   (define-key menu [sp1] '("--"))
   (define-key menu [hide-all] '(menu-item "全隐藏" egg-buffer-hide-all))
@@ -4035,10 +4035,10 @@ Jump to line LINE if it's not nil."
     "\\<egg-log-style-buffer-map>"
     "\\[egg-log-buffer-next-ref]:下一条  "
     "\\[egg-log-buffer-prev-ref]:上一条  "
-    "\\[egg-status]:查看项目概况  "
-    "\\[egg-log]:查看项目历史  "
+    "\\[egg-status]:看项目概况  "
+    "\\[egg-log]:看项目历史  "
     "\\[egg-buffer-cmd-refresh]:刷新下  "
-    "\\[egg-quit-buffer]:关闭此页面\n" )
+    "\\[egg-quit-buffer]:关闭本页\n" )
    (egg-text "Commit 部分的快捷键:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-secondary-log-commit-map>"
@@ -4048,7 +4048,7 @@ Jump to line LINE if it's not nil."
     "\\[egg-section-cmd-toggle-hide-show-children]:隐藏子块\n"
     "\\[egg-log-buffer-anchor-head]:anchor HEAD  "
     "\\[egg-log-buffer-checkout-commit]:切换分支或节点  "
-    "\\[egg-log-buffer-tag-commit]:new tag  "
+    "\\[egg-log-buffer-tag-commit]:设新进度重点 tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag\n"
     )
    (egg-text "Diff 部分的快捷键:" 'egg-help-header-2) "\n"
@@ -5249,7 +5249,7 @@ would be a pull (by default --ff-only)."
       (error "Nothing to push here!"))
     (if (or prompt-dst (equal dst src))
 	(setq dst (egg-read-local-ref (format "use %s to update: " src))))
-    (if (y-or-n-p (format "push %s on %s%s? " src dst 
+    (if (y-or-n-p (format "push %s to %s%s? " src dst 
 			  (if non-ff " (allowed non-ff move)" "")))
 	(if (string-equal dst head-name)
 	    (if non-ff
@@ -5589,7 +5589,7 @@ prompt for a remote repo."
     (erase-buffer)
     (insert title
             (if subtitle (concat "\n" subtitle "\n") "\n")
-            (egg-text "repo仓库: " 'egg-text-2)
+            (egg-text "仓库所在: " 'egg-text-2)
             (egg-text (egg-git-dir) 'font-lock-constant-face)
             (if desc (concat "\n" desc "\n") "\n")
             "\n")
@@ -5954,7 +5954,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
   [menu-bar egg-log-buffer-mode] (cons "【成果-历史】" egg-log-buffer-menu))
 
 (let ((menu egg-log-buffer-menu))
-  (define-key menu [quit] '(menu-item "关 History View" egg-quit-buffer))
+  (define-key menu [quit] '(menu-item "关 历史页" egg-quit-buffer))
   (define-key menu [refresh] '(menu-item "刷新 History View" egg-buffer-cmd-refresh))
   (define-key menu [pickaxe] '(menu-item "Search History for Changes"
                                          egg-search-changes))
@@ -5984,8 +5984,8 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\<egg-log-buffer-mode-map>"
     "\\[egg-log-buffer-next-ref]:下一条  "
     "\\[egg-log-buffer-prev-ref]:上一条  "
-    "\\[egg-search-changes]:搜寻历史记录  "
-    "\\[egg-status]:查看项目概况  "
+    "\\[egg-search-changes]:搜寻改动记录  "
+    "\\[egg-status]:看项目概况  "
     "\\[egg-buffer-cmd-refresh]:刷新下  "
     "\\[egg-quit-buffer]:关闭此页面\n")
    (egg-text "Commit 部分的快捷键:" 'egg-help-header-2)
@@ -5998,10 +5998,10 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-checkout-commit]:切换 分支或节点  "
     "\\[egg-log-buffer-start-new-branch]:start new branch\n"
     "\\[egg-log-buffer-anchor-head]:HEAD转到...  "
-    "\\[egg-log-buffer-tag-commit]:new tag  "
+    "\\[egg-log-buffer-tag-commit]:设新进度重点tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag  "
     "\\[egg-log-buffer-create-new-branch]:开新枝  "
-    "\\[egg-log-buffer-diff-revs]:对比 vs HEAD (or BASE)\n"
+    "\\[egg-log-buffer-diff-revs]:对比 vs HEAD (或 BASE)\n"
     "\\[egg-log-buffer-merge]:并入 HEAD  "
     "\\[egg-log-buffer-rebase]:rebase HEAD  "
     "\\[egg-log-buffer-rebase-interactive]:rebase marked commits interactively"
@@ -7238,9 +7238,9 @@ If ASK-FOR-DST is non-nil, then compare the file's contents in 2 different revs.
     (:status		. "查看项目状态")
     (:stage-all		. "缓存项目所有改动")
     (:rebase-continue	. "Continue Rebase Session")
-    (:diff-file		. "Show File's Modifications (Diff)")
+    (:diff-file		. "查看文件所有改动 (Diff)")
     (:commit		. "提交已缓存改动")
-    (:sync		. "查看项目历史")
+    (:sync		. "查看项目进度")
     (:new-branch	. "Start a New Branch")))
 
 (defconst egg-electrict-select-action-buffer
