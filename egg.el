@@ -7529,7 +7529,7 @@ With C-u prefix, ask for confirmation before executing the next-action."
   (define-key menu [sp3] '("--"))
   (define-key menu [grep] '(menu-item "Search Project's Other Versions (grep)" egg-grep))
   (define-key menu [pickaxe] '(menu-item "Search File History" egg-file-log-pickaxe))
-  (define-key menu [vother] '(menu-item "View File Other Version" egg-file-version-other-window))
+  (define-key menu [vother] '(menu-item "查看文件其他版本" egg-file-version-other-window))
   (define-key menu [filelog] '(menu-item "查看文件历史" egg-file-log))
   (define-key menu [sp2] '("--"))
   (define-key menu [cother] '(menu-item "转分支看此文件" egg-file-checkout-other-version))
