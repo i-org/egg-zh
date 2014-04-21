@@ -249,7 +249,7 @@ the index. \\{egg-wdir-diff-section-map}")
 
 (defconst egg-status-buffer-common-help-text
   (concat
-   (egg-text "快捷键:" 'egg-help-header-2)
+   (egg-text "■快捷键:" 'egg-help-header-2)
    (egg-pretty-help-text
     "\\<egg-status-buffer-mode-map>\n"
     "\\[egg-buffer-cmd-navigate-prev]:上一块  "
@@ -271,7 +271,7 @@ the index. \\{egg-wdir-diff-section-map}")
 
 (defconst egg-status-buffer-rebase-help-text
   (concat
-   (egg-text "Rebase 部分的快捷键:" 'egg-help-header-2)
+   (egg-text "■Rebase 部分的快捷键:" 'egg-help-header-2)
    (egg-pretty-help-text
     "\\<egg-status-buffer-rebase-map>\n"
     "\\[egg-buffer-selective-rebase-continue]:resume rebase  "
@@ -280,7 +280,7 @@ the index. \\{egg-wdir-diff-section-map}")
 
 (defconst egg-status-buffer-diff-help-text
   (concat
-   (egg-text "Diff 部分的快捷键:"
+   (egg-text "■Diff 部分的快捷键:"
              'egg-help-header-2)
    (egg-pretty-help-text
     "\\<egg-unstaged-diff-section-map>\n"
@@ -312,7 +312,7 @@ the index. \\{egg-wdir-diff-section-map}")
 
 (defconst egg-diff-buffer-common-help-text
   (concat
-   (egg-text "快捷键:" 'egg-help-header-2)
+   (egg-text "■快捷键:" 'egg-help-header-2)
    (egg-pretty-help-text
     "\\<egg-buffer-mode-map>\n"
     "\\[egg-buffer-cmd-navigate-prev]:上一块  "
@@ -321,7 +321,7 @@ the index. \\{egg-wdir-diff-section-map}")
     "\\[egg-quit-buffer]:退出本页\n")))
 
 (defconst egg-diff-buffer-diff-help-heading
-  (egg-text "Diff 部分的快捷键:" 'egg-help-header-2))
+  (egg-text "■Diff 部分的快捷键:" 'egg-help-header-2))
 
 (defconst egg-unstaged-diff-help-text
   (egg-pretty-help-text
@@ -349,7 +349,7 @@ the index. \\{egg-wdir-diff-section-map}")
 
 (defconst egg-stash-help-text
   (concat
-   (egg-text "Stash 部分快捷键:" 'egg-help-header-2) "\n"
+   (egg-text "■Stash 部分快捷键:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-stash-map>"
     "\\[egg-sb-buffer-show-stash]:载入详情  "
