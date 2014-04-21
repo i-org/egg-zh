@@ -4030,7 +4030,7 @@ Jump to line LINE if it's not nil."
 
 (defconst egg-log-style-help-text
   (concat
-   (egg-text "快捷键:" 'egg-help-header-2) "\n"
+   (egg-text "■快捷键:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-style-buffer-map>"
     "\\[egg-log-buffer-next-ref]:下一条  "
@@ -4039,7 +4039,7 @@ Jump to line LINE if it's not nil."
     "\\[egg-log]:看项目历史  "
     "\\[egg-buffer-cmd-refresh]:刷新下  "
     "\\[egg-quit-buffer]:关闭本页\n" )
-   (egg-text "Commit 部分的快捷键:" 'egg-help-header-2) "\n"
+   (egg-text "■Commit 部分的快捷键:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-secondary-log-commit-map>"
     "\\[egg-log-locate-commit]:locate commit in history  "
@@ -4051,7 +4051,7 @@ Jump to line LINE if it's not nil."
     "\\[egg-log-buffer-tag-commit]:设新进度重点 tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag\n"
     )
-   (egg-text "Diff 部分的快捷键:" 'egg-help-header-2) "\n"
+   (egg-text "■Diff 部分的快捷键:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-diff-map>"
     "\\[egg-log-diff-cmd-visit-file-other-window]:visit version/line\n")
@@ -5978,7 +5978,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
 
 (defconst egg-log-buffer-help-text
   (concat
-   (egg-text "快捷键：" 'egg-help-header-2)
+   (egg-text "■快捷键：" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-buffer-mode-map>"
@@ -5988,7 +5988,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-status]:看项目概况  "
     "\\[egg-buffer-cmd-refresh]:刷新下  "
     "\\[egg-quit-buffer]:关闭此页面\n")
-   (egg-text "Commit 部分的快捷键:" 'egg-help-header-2)
+   (egg-text "■Commit 部分的快捷键:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-commit-map>"
@@ -6007,7 +6007,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-rebase-interactive]:rebase marked commits interactively"
     "\n"
     )
-   (egg-text "(交互式) rebase 部分的快捷键:" 'egg-help-header-2)
+   (egg-text "■(交互式) rebase 部分的快捷键:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-commit-map>"
@@ -6016,7 +6016,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-mark-squash]:mark as squashed  "
     "\\[egg-log-buffer-mark-edit]:mark as edited  "
     "\\[egg-log-buffer-unmark]:unmark\n")
-   (egg-text "Ref 部分的快捷键:" 'egg-help-header-2)
+   (egg-text "■Ref 部分的快捷键:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-local-ref-map>"
@@ -6026,7 +6026,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-push-to-remote]:投递给远端 push  "
     "\\<egg-log-remote-branch-map>"
     "\\[egg-log-buffer-fetch-remote-ref]:从远端获取fetch\n")
-   (egg-text "差异 Diff 部分的快捷键:" 'egg-help-header-2)
+   (egg-text "■差异 Diff 部分的快捷键:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-diff-map>"
@@ -6349,7 +6349,7 @@ if FILE-NAME is non-nil, restrict the logs to the commits modifying FILE-NAME."
 
 (defconst egg-file-log-help-text
   (concat
-   (egg-text "快捷键:" 'egg-help-header-2) "\n"
+   (egg-text "■快捷键:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-buffer-mode-map>"
     "\\[egg-log-buffer-next-ref]:下一条  "
@@ -6357,7 +6357,7 @@ if FILE-NAME is non-nil, restrict the logs to the commits modifying FILE-NAME."
     "\\[egg-status]:查看项目概况  "
     "\\[egg-buffer-cmd-refresh]:刷新下  "
     "\\[egg-quit-buffer]:关闭此页面\n" )
-   (egg-text "Commit 部分的快捷键:" 'egg-help-header-2) "\n"
+   (egg-text "■Commit 部分的快捷键:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-secondary-log-commit-map>"
     "\\[egg-log-locate-commit]:locate commit in history  "
@@ -6371,7 +6371,7 @@ if FILE-NAME is non-nil, restrict the logs to the commits modifying FILE-NAME."
     "\\[egg-log-buffer-tag-commit]:设新进度重点tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag\n"
     )
-   (egg-text "Diff 部分的快捷键:" 'egg-help-header-2) "\n"
+   (egg-text "■Diff 部分的快捷键:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-diff-map>"
     "\\[egg-log-diff-cmd-visit-file-other-window]:visit version/line\n")
