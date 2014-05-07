@@ -14,6 +14,10 @@
 
 ![正规标志](/doc/egg_logo.svg)
 
+
+截图
+![鹅哥哥](/doc/snapshot.png)
+
 ## Intro
 
 Egg is an Emacs interface to git. It's a suite composed of a
