@@ -6349,15 +6349,15 @@ if FILE-NAME is non-nil, restrict the logs to the commits modifying FILE-NAME."
 
 (defconst egg-file-log-help-text
   (concat
-   (egg-text "■快捷键:" 'egg-help-header-2) "\n"
+   (egg-text "■快捷键■:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-buffer-mode-map>"
     "\\[egg-log-buffer-next-ref]:下一条  "
     "\\[egg-log-buffer-prev-ref]:上一条  "
     "\\[egg-status]:查看项目概况  "
     "\\[egg-buffer-cmd-refresh]:刷新下  "
-    "\\[egg-quit-buffer]:关闭此页面\n" )
-   (egg-text "■Commit 部分的快捷键:" 'egg-help-header-2) "\n"
+    "\\[egg-quit-buffer]:关此页面\n" )
+   (egg-text "■立案部分的快捷键■Commit:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-secondary-log-commit-map>"
     "\\[egg-log-locate-commit]:locate commit in history  "
@@ -6371,7 +6371,7 @@ if FILE-NAME is non-nil, restrict the logs to the commits modifying FILE-NAME."
     "\\[egg-log-buffer-tag-commit]:设新进度重点tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag\n"
     )
-   (egg-text "■Diff 部分的快捷键:" 'egg-help-header-2) "\n"
+   (egg-text "■差异部分的快捷键■Diff:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-diff-map>"
     "\\[egg-log-diff-cmd-visit-file-other-window]:visit version/line\n")
