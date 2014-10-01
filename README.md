@@ -1,14 +1,11 @@
 # 鹅哥哥 成果管理 （Egg = Emacs Got Git).
 
-易码肆常用的版本管理工具，功能较全，交互界面友好，主要操作流程有提示操作，
-绝大部分操作有直观的提示，这样可以不用去记复杂的命令，直观使用git的绝大部分功能。
-对新手来手比较方便，容易上手。
+易码肆常用的版本管理工具，功能较全，交互界面友好，主要操作流程有提示性向导，绝大部分操作有直观的提示，这样可以不用去记复杂的命令，直观使用git的绝大部分功能。
+对新手来说比较方便，容易上手。
 
 个人把操作提示都翻译成中文，且调整了有些布局不合理的菜单。
 
 **注：** 此中文名纯属搞笑！
-
-别跟我较真！
 
 ![鹅哥哥](/doc/egg.jpg)
 
@@ -24,7 +21,7 @@
 截图
 ![鹅哥哥实况截图](/doc/snapshot.png)
 
-## Intro
+## 感谢 egg
 
 Egg is an Emacs interface to git. It's a suite composed of a
 minor-mode and various special-buffers presenting different UIs to
@@ -65,9 +62,10 @@ help the user performing many git operations.
 
  
 
-## Thanks to MAGIT
+## 感谢 MAGIT
 
 The design of the status-buffer Egg was borrowed/stolen from Magit.
 however has much more functionalities than the status buffer.
 Magit is an interface to the version control system Git, implemented
 by Marius Voller. His code at: http://philjackson.github.com/magit/
+

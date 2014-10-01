@@ -5596,7 +5596,7 @@ prompt for a remote repo."
     (setq inv-beg (- (point) 2))
     (when (stringp help)
       (setq help-beg (point))
-      (insert (egg-text "== 说明 ==" 'egg-help-header-1) "\n")
+      (insert (egg-text "■■快捷键说明■■" 'egg-help-header-1) "\n")
       (put-text-property help-beg (point) 'help-echo (egg-tooltip-func))
       (setq inv-beg (1- (point)))
       (insert help)
@@ -5955,30 +5955,30 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
 
 (let ((menu egg-log-buffer-menu))
   (define-key menu [quit] '(menu-item "关 历史页" egg-quit-buffer))
-  (define-key menu [refresh] '(menu-item "刷新 History View" egg-buffer-cmd-refresh))
-  (define-key menu [pickaxe] '(menu-item "Search History for Changes"
+  (define-key menu [refresh] '(menu-item "刷新 历史页" egg-buffer-cmd-refresh))
+  (define-key menu [pickaxe] '(menu-item "查找变动历史"
                                          egg-search-changes))
   (define-key menu [goto] '(menu-item "Locate Line in File"
                                       egg-log-hunk-cmd-visit-file-other-window
                                       :enable (egg-hunk-at-point)))
   (define-key menu [sp3] '("--"))
   (define-key menu [commit] (list 'menu-item
-                                  '(egg-log-commit-mouse-menu-heading "Operations on ")
+                                  '(egg-log-commit-mouse-menu-heading "可用操作： ")
                                   egg-log-buffer-mode-commit-menu
                                   :visible '(egg-commit-at-point)))
   (define-key menu [sp1] '("--"))
   (define-key menu [hs] '(menu-item "显/隐详情"
                                     egg-section-cmd-toggle-hide-show
                                     :enable (egg-navigation-at-point)))
-  (define-key menu [hs-sub] '(menu-item "Hide/Show Details of Subsections"
+  (define-key menu [hs-sub] '(menu-item "隐/显 子节详情"
                                         egg-section-cmd-toggle-hide-show-children
                                         :enable (egg-navigation-at-point)))
-  (define-key menu [prev] '(menu-item "Goto Previous Ref" egg-log-buffer-prev-ref))
-  (define-key menu [next] '(menu-item "Goto Next Ref" egg-log-buffer-next-ref)))
+  (define-key menu [prev] '(menu-item "转入上一个 Ref" egg-log-buffer-prev-ref))
+  (define-key menu [next] '(menu-item "转入下一个 Ref" egg-log-buffer-next-ref)))
 
 (defconst egg-log-buffer-help-text
   (concat
-   (egg-text "■快捷键：" 'egg-help-header-2)
+   (egg-text "■快捷键■：" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-buffer-mode-map>"
@@ -5988,7 +5988,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-status]:看项目概况  "
     "\\[egg-buffer-cmd-refresh]:刷新下  "
     "\\[egg-quit-buffer]:关闭此页面\n")
-   (egg-text "■Commit 部分的快捷键:" 'egg-help-header-2)
+   (egg-text "■提案部分的快捷键■ Commit:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-commit-map>"
@@ -6007,26 +6007,26 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-rebase-interactive]:rebase marked commits interactively"
     "\n"
     )
-   (egg-text "■(交互式) rebase 部分的快捷键:" 'egg-help-header-2)
+   (egg-text "■(交互式)重整部分的快捷键■ rebase:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-commit-map>"
     "\\[egg-log-buffer-mark]:设为主 BASE "
-    "\\[egg-log-buffer-mark-pick]:mark as picked  "
+    "\\[egg-log-buffer-mark-pick]:记为 选定  "
     "\\[egg-log-buffer-mark-squash]:mark as squashed  "
-    "\\[egg-log-buffer-mark-edit]:mark as edited  "
-    "\\[egg-log-buffer-unmark]:unmark\n")
-   (egg-text "■Ref 部分的快捷键:" 'egg-help-header-2)
+    "\\[egg-log-buffer-mark-edit]:记为 已改  "
+    "\\[egg-log-buffer-unmark]:取消 标记\n")
+   (egg-text "■分支部分的快捷键■ Ref:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-local-ref-map>"
     "\\[egg-log-buffer-rm-ref]:删除分支 ref  "
-    "\\[egg-log-buffer-push-to-local]:用ref 同步 HEAD (或者本地 ref)push  "
+    "\\[egg-log-buffer-push-to-local]:用ref 同步 HEAD (或者本地 ref)：push  "
     "\\[egg-log-buffer-push-head-to-local]:用 HEAD 同步 ref：push\n"
-    "\\[egg-log-buffer-push-to-remote]:投递给远端 push  "
+    "\\[egg-log-buffer-push-to-remote]:投递给远端：push  "
     "\\<egg-log-remote-branch-map>"
-    "\\[egg-log-buffer-fetch-remote-ref]:从远端获取fetch\n")
-   (egg-text "■差异 Diff 部分的快捷键:" 'egg-help-header-2)
+    "\\[egg-log-buffer-fetch-remote-ref]:从远端获取 fetch\n")
+   (egg-text "■差异部分的快捷键■ Diff:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-diff-map>"
