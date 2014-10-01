@@ -5267,7 +5267,7 @@ would be a pull (by default --ff-only)."
   (let* ((dst (egg-ref-at-point pos)))
     (unless dst
       (error "Nothing here to push to!"))
-    (if (y-or-n-p (format "update %s with HEAD? " dst))
+    (if (y-or-n-p (format "想用HEAD 同步 %s 么？ " dst))
 	(egg--git-push-cmd (current-buffer) (if non-ff "-v" "-vf")
 			   "." (concat "HEAD:" dst))
       (message "local push cancelled!"))))
@@ -5360,7 +5360,7 @@ prompt for a remote repo."
             (completing-read (format "push to %s (default all heads): "
                                      remote)
                              (egg-local-refs) nil nil nil nil "--all"))
-      (message "GIT> pushing %s to %s..."
+      (message "GIT> 同步 %s 到 %s..."
                (if (equal name "--all") "everything" name) remote)
       (egg-buffer-async-do nil "push" remote name))))
 
@@ -5589,7 +5589,7 @@ prompt for a remote repo."
     (erase-buffer)
     (insert title
             (if subtitle (concat "\n" subtitle "\n") "\n")
-            (egg-text "仓库所在: " 'egg-text-2)
+            (egg-text "■仓库位置: " 'egg-text-2)
             (egg-text (egg-git-dir) 'font-lock-constant-face)
             (if desc (concat "\n" desc "\n") "\n")
             "\n")
@@ -5774,22 +5774,22 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
 
 (defun egg-log-make-commit-line-menu (&optional heading)
   (let ((map (make-sparse-keymap heading)))
-    (define-key map [load] (list 'menu-item "载入 Commit 详情"
+    (define-key map [load] (list 'menu-item "载入提案详情"
                                  'egg-log-buffer-insert-commit
                                  :visible '(egg-commit-at-point)))
     (define-key map [diff] (list 'menu-item "Compare against HEAD (or BASE)"
                                  'egg-log-buffer-diff-revs
                                  :visible '(egg-commit-at-point)))
-    (define-key map [prev] (list 'menu-item "Goto Prev Ref"
+    (define-key map [prev] (list 'menu-item "转入前一个 Ref"
                                  'egg-log-buffer-prev-ref
                                  :visible '(egg-navigation-at-point)))
-    (define-key map [next] (list 'menu-item "Goto Next Ref"
+    (define-key map [next] (list 'menu-item "转入下一个 Ref"
                                  'egg-log-buffer-next-ref
                                  :visible '(egg-navigation-at-point)))
     (define-key map [hs] (list 'menu-item "显/隐详情"
                                'egg-section-cmd-toggle-hide-show
                                :visible '(egg-navigation-at-point)))
-    (define-key map [hs-sub] (list 'menu-item "显/隐 subsections详情"
+    (define-key map [hs-sub] (list 'menu-item "显/隐 子节详情"
                                    'egg-section-cmd-toggle-hide-show-children
                                    :visible '(egg-navigation-at-point)))
     (define-key map [sp9] '("--"))
@@ -5807,7 +5807,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
                                   'egg-log-buffer-push-head-to-local
                                   :visible '(egg-ref-at-point)
                                   :enable '(not (egg-remote-at-point))))
-    (define-key map [upload] (list 'menu-item "把 Ref 投递给 Remote push"
+    (define-key map [upload] (list 'menu-item "把 Ref 投递给远端：push"
                                    'egg-log-buffer-push-to-remote
                                    :visible '(egg-ref-at-point)
                                    :enable '(not (egg-remote-at-point))))
@@ -5890,14 +5890,14 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
         (prefix (or prefix "(Git/Egg)")))
     (cond ((consp ref)
            (format "%s %s: %s" prefix
-                   (cond ((eq (cdr ref) :head) "Branch")
-                         ((eq (cdr ref) :remote) "Remote")
-                         ((eq (cdr ref) :tag) "Tag"))
+                   (cond ((eq (cdr ref) :head) "分支")
+                         ((eq (cdr ref) :remote) "远端")
+                         ((eq (cdr ref) :tag) "阶段"))
                    (car ref)))
           ((consp references)
            (concat "Ref: " prefix (car (last references))))
           ((stringp commit)
-           (concat prefix " Commit: "
+           (concat prefix " 提案: "
                    (file-name-nondirectory
                     (egg-pretty-short-rev commit))))
           (t "No Commit Here"))))
@@ -6177,7 +6177,7 @@ if FILE-NAME is non-nil, restrict the logs to the commits modifying FILE-NAME."
           (egg-repo-state (if (invoked-interactively-p) :error-if-not-git)))
          (default-directory (egg-work-tree-dir 
 			     (egg-git-dir (invoked-interactively-p))))
-	 (description (concat (egg-text "当前角度为: " 'egg-text-2)
+	 (description (concat (egg-text "■当前角度为: " 'egg-text-2)
 			      (if ref-name 
 				  (egg-text ref-name 'egg-term)
 				(egg-text "all refs" 'egg-term))))
