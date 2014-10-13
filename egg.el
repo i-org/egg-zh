@@ -1751,7 +1751,7 @@ adding the contents."
 (defun egg-sb-insert-untracked-section ()
   "Insert the untracked files section into the status buffer."
   (let ((beg (point)) inv-beg end)
-    (insert (egg-prepend "未纳入管理的文件:" "\n\n"
+    (insert (egg-prepend "未纳入 成果管理 的文件:" "\n\n"
                          'face 'egg-section-title
                          'help-echo (egg-tooltip-func))
             "\n")
@@ -1799,7 +1799,7 @@ adding the contents."
 
 (defun egg-sb-insert-stash-section ()
   (let ((beg (point)) inv-beg stash-beg end)
-    (insert (egg-prepend "Stashed WIPs:" "\n\n"
+    (insert (egg-prepend "暂缓 Stashed WIPs:" "\n\n"
                          'face 'egg-section-title
                          'help-echo (egg-tooltip-func))
             "\n")
@@ -2548,12 +2548,12 @@ If INIT was not nil, then perform 1st-time initializations as well."
 		 (egg-sb-insert-unstaged-section 
 		  (cond ((consp egg-status-buffer-interactive-stash-info) "To be Removed:")
 			((egg-is-merging state) "Unmerged Changes:")
-			(t "未提交改动:"))))
+			(t "未提案的改动:"))))
                 ((eq sect 'staged) 
 		 (egg-sb-insert-staged-section 
 		  (cond ((consp egg-status-buffer-interactive-stash-info) "To be Stashed:")
 			((egg-is-merging state) "Merged Changes:")
-			(t "已提交改动:"))))
+			(t "已提案的改动:"))))
                 ((eq sect 'untracked) (egg-sb-insert-untracked-section))
 		((eq sect 'stash) (egg-sb-insert-stash-section))))
         (egg-calculate-hunk-ranges)
@@ -5987,7 +5987,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-search-changes]:搜寻改动记录  "
     "\\[egg-status]:看项目概况  "
     "\\[egg-buffer-cmd-refresh]:刷新下  "
-    "\\[egg-quit-buffer]:关闭此页面\n")
+    "\\[egg-quit-buffer]:关此页面\n")
    (egg-text "■提案部分的快捷键■ Commit:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
@@ -5996,7 +5996,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-section-cmd-toggle-hide-show]:显/隐详情 "
     "\\[egg-section-cmd-toggle-hide-show-children]:隐藏子块  "
     "\\[egg-log-buffer-checkout-commit]:切换 分支或节点  "
-    "\\[egg-log-buffer-start-new-branch]:开+进入新枝\n"
+    "\\[egg-log-buffer-start-new-branch]:开 + 进入新枝\n"
     "\\[egg-log-buffer-anchor-head]:HEAD调转到...  "
     "\\[egg-log-buffer-tag-commit]:设新进度重点tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag  "
