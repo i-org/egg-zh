@@ -2733,9 +2733,9 @@ If INIT was not nil, then perform 1st-time initializations as well."
   [menu-bar egg-status-buffer-mode] (cons "【成果-概况】" egg-status-buffer-menu))
 
 (let ((menu egg-status-buffer-menu))
-  (define-key menu [quit] '(menu-item "关 项目概况" egg-quit-buffer))
-  (define-key menu [refresh] '(menu-item "刷新 项目概况" egg-buffer-cmd-refresh))
-  (define-key menu [log] '(menu-item "查看分支历史" egg-log))
+  (define-key menu [quit] '(menu-item "关 【成果-概况】" egg-quit-buffer))
+  (define-key menu [refresh] '(menu-item "刷新 【成果-概况】" egg-buffer-cmd-refresh))
+  (define-key menu [log] '(menu-item "查看 【成果-历史】" egg-log))
   (define-key menu [sp3] '("--"))
   (define-key menu [rb-skip] '(menu-item "Skip Rebase Session's Current Commit"
                                          egg-buffer-selective-rebase-skip
@@ -4035,11 +4035,11 @@ Jump to line LINE if it's not nil."
     "\\<egg-log-style-buffer-map>"
     "\\[egg-log-buffer-next-ref]:下一条  "
     "\\[egg-log-buffer-prev-ref]:上一条  "
-    "\\[egg-status]:看项目概况  "
-    "\\[egg-log]:看项目历史  "
+    "\\[egg-status]:看【成果-概况】  "
+    "\\[egg-log]:看【成果-历史】  "
     "\\[egg-buffer-cmd-refresh]:刷新下  "
     "\\[egg-quit-buffer]:关闭本页\n" )
-   (egg-text "■Commit 部分的快捷键:" 'egg-help-header-2) "\n"
+   (egg-text "■立案 部分的快捷键 Commit:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-secondary-log-commit-map>"
     "\\[egg-log-locate-commit]:locate commit in history  "
@@ -4051,7 +4051,7 @@ Jump to line LINE if it's not nil."
     "\\[egg-log-buffer-tag-commit]:设新进度重点 tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag\n"
     )
-   (egg-text "■Diff 部分的快捷键:" 'egg-help-header-2) "\n"
+   (egg-text "■差异 部分的快捷键 Diff:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-diff-map>"
     "\\[egg-log-diff-cmd-visit-file-other-window]:visit version/line\n")
@@ -5954,8 +5954,8 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
   [menu-bar egg-log-buffer-mode] (cons "【成果-历史】" egg-log-buffer-menu))
 
 (let ((menu egg-log-buffer-menu))
-  (define-key menu [quit] '(menu-item "关 历史页" egg-quit-buffer))
-  (define-key menu [refresh] '(menu-item "刷新 历史页" egg-buffer-cmd-refresh))
+  (define-key menu [quit] '(menu-item "关 【成果-历史】" egg-quit-buffer))
+  (define-key menu [refresh] '(menu-item "刷新 【成果-历史】" egg-buffer-cmd-refresh))
   (define-key menu [pickaxe] '(menu-item "查找变动历史"
                                          egg-search-changes))
   (define-key menu [goto] '(menu-item "Locate Line in File"
@@ -5985,10 +5985,10 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-next-ref]:下一条  "
     "\\[egg-log-buffer-prev-ref]:上一条  "
     "\\[egg-search-changes]:搜寻改动记录  "
-    "\\[egg-status]:看项目概况  "
     "\\[egg-buffer-cmd-refresh]:刷新下  "
+    "\\[egg-status]:看【成果-概况】  "
     "\\[egg-quit-buffer]:关此页面\n")
-   (egg-text "■提案部分的快捷键■ Commit:" 'egg-help-header-2)
+   (egg-text "■立案 部分的快捷键■ Commit:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-commit-map>"
@@ -6007,7 +6007,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-rebase-interactive]:rebase marked commits interactively"
     "\n"
     )
-   (egg-text "■(交互式)重整部分的快捷键■ rebase:" 'egg-help-header-2)
+   (egg-text "■(交互式)重整部分 的快捷键■ rebase:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-commit-map>"
@@ -6016,7 +6016,7 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-mark-squash]:mark as squashed  "
     "\\[egg-log-buffer-mark-edit]:记为 已改  "
     "\\[egg-log-buffer-unmark]:取消 标记\n")
-   (egg-text "■分支部分的快捷键■ Ref:" 'egg-help-header-2)
+   (egg-text "■分支 部分的快捷键■ Ref:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-local-ref-map>"
@@ -6025,19 +6025,19 @@ Each remote ref on the commit line has extra extra extra keybindings:\\<egg-log-
     "\\[egg-log-buffer-push-head-to-local]:用 HEAD 同步 ref：push\n"
     "\\[egg-log-buffer-push-to-remote]:投递给远端：push  "
     "\\<egg-log-remote-branch-map>"
-    "\\[egg-log-buffer-fetch-remote-ref]:从远端获取 fetch\n")
-   (egg-text "■差异部分的快捷键■ Diff:" 'egg-help-header-2)
+    "\\[egg-log-buffer-fetch-remote-ref]:从远端获取：fetch\n")
+   (egg-text "■差异 部分的快捷键■ Diff:" 'egg-help-header-2)
    "\n"
    (egg-pretty-help-text
     "\\<egg-log-diff-map>"
     "\\[egg-log-diff-cmd-visit-file-other-window]:visit version/line\n")
-   (egg-text "颜色含义:" 'egg-help-header-2) "\n"
+   (egg-text "■颜色含义■:" 'egg-help-header-2) "\n"
    (egg-text "本地枝干" 'egg-branch-mono) " "
    (egg-text "节点" 'egg-tag-mono) " "
-   (egg-text "自动提案名" 'egg-an-tag-mono) " "
+   (egg-text "自动立案名" 'egg-an-tag-mono) " "
    (egg-text "远端/" 'egg-remote-mono)
    (egg-text "枝干" 'egg-branch-mono) " "
-   (egg-text "  当前开发点所在 HEAD  " 'egg-log-HEAD-name) " "
+   (egg-text "  当前 角度 所在：HEAD  " 'egg-log-HEAD-name) " "
    "\n"))
 
 
@@ -6354,10 +6354,10 @@ if FILE-NAME is non-nil, restrict the logs to the commits modifying FILE-NAME."
     "\\<egg-log-buffer-mode-map>"
     "\\[egg-log-buffer-next-ref]:下一条  "
     "\\[egg-log-buffer-prev-ref]:上一条  "
-    "\\[egg-status]:查看项目概况  "
+    "\\[egg-status]:看 【成果-概况】  "
     "\\[egg-buffer-cmd-refresh]:刷新下  "
     "\\[egg-quit-buffer]:关此页面\n" )
-   (egg-text "■立案部分的快捷键■Commit:" 'egg-help-header-2) "\n"
+   (egg-text "■立案 部分的快捷键■Commit:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-secondary-log-commit-map>"
     "\\[egg-log-locate-commit]:locate commit in history  "
@@ -6371,7 +6371,7 @@ if FILE-NAME is non-nil, restrict the logs to the commits modifying FILE-NAME."
     "\\[egg-log-buffer-tag-commit]:设新进度重点tag  "
     "\\[egg-log-buffer-atag-commit]:new annotated tag\n"
     )
-   (egg-text "■差异部分的快捷键■Diff:" 'egg-help-header-2) "\n"
+   (egg-text "■差异 部分的快捷键■Diff:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-log-diff-map>"
     "\\[egg-log-diff-cmd-visit-file-other-window]:visit version/line\n")
@@ -7234,9 +7234,9 @@ If ASK-FOR-DST is non-nil, then compare the file's contents in 2 different revs.
 
 (defconst egg-action-menu-name-alist
   '((:merge-file	. "Resolve File's Merge Conflicts using Ediff")
-    (:stage-file	. "提交文件所有改动")
-    (:status		. "查看项目状态")
-    (:stage-all		. "提交项目所有改动")
+    (:stage-file	. "提交 文件所有改动")
+    (:status		. "看 【成果-概况】")
+    (:stage-all		. "提交 所有改动")
     (:rebase-continue	. "Continue Rebase Session")
     (:diff-file		. "查看文件所有改动 (Diff)")
     (:commit		. "立案")
@@ -7523,8 +7523,8 @@ With C-u prefix, ask for confirmation before executing the next-action."
 
 (let ((menu egg-minor-mode-menu))
   (define-key menu [reflog] '(menu-item "看分支版本历史" egg-reflog))
-  (define-key menu [log] '(menu-item "看项目历史" egg-log))
-  (define-key menu [status] '(menu-item "看项目概况" egg-status))
+  (define-key menu [log] '(menu-item "看【成果-历史】" egg-log))
+  (define-key menu [status] '(menu-item "看【成果-概况】" egg-status))
   (define-key menu [blame] '(menu-item "开关单页递增模式" egg-file-toggle-blame-mode))
   (define-key menu [sp3] '("--"))
   (define-key menu [grep] '(menu-item "Search Project's Other Versions (grep)" egg-grep))
@@ -7569,10 +7569,10 @@ With C-u prefix, ask for confirmation before executing the next-action."
   "Turn-on egg-minor-mode which would enable key bindings for
 egg in current buffer.\\<egg-minor-mode-map>
 \\[egg-start-new-branch] 在当前的HEAD上开新枝
-\\[egg-status] 看项目概况
+\\[egg-status] 看【成果-概况】
 \\[egg-commit-log-edit] 立案
 \\[egg-file-stage-current-file] 提交本文件的改动
-\\[egg-log] 看项目历史
+\\[egg-log] 看【成果-历史】
 \\[egg-file-checkout-other-version] checkout another version of the current file
 \\[egg-file-cancel-modifications] 撤除本文未提交的改动
 \\[egg-next-action] perform the next logical action

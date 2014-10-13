@@ -256,7 +256,7 @@ the index. \\{egg-wdir-diff-section-map}")
     "\\[egg-buffer-cmd-navigate-next]:下一块  "
     "\\[egg-stage-all-files]:全部提案：stage  "
     "\\[egg-commit-log-edit]:立案：commit  "
-    "\\[egg-log]:看项目历史\n"
+    "\\[egg-log]:看【成果-历史】\n"
     "\\[egg-unstage-all-files]:撤出全部提案：unstage  "
     "\\[egg-diff-ref]:查看其他版本\n"
     "\\[egg-status-buffer-undo-wdir]: 撤销未提交的改动  "
