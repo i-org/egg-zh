@@ -8,3 +8,6 @@ GTAGS
 .*.d
 .*.deps
 egg-reload.el
+
+.directory
+.projectile

@@ -23,7 +23,7 @@
 
 ![鹅哥哥实况截图](/doc/snapshot.png)
 
-## 感谢 egg
+## 感谢 egg ##
 
 
 [Egg](https://github.com/bogolisk/egg) is an Emacs interface to git. It's a suite composed of a
@@ -65,7 +65,7 @@ help the user performing many git operations.
 
  
 
-## 感谢 MAGIT
+## 感谢 MAGIT ##
 
 The design of the status-buffer Egg was borrowed/stolen from Magit.
 however has much more functionalities than the status buffer.

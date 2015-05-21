@@ -327,7 +327,7 @@ the index. \\{egg-wdir-diff-section-map}")
   (egg-pretty-help-text
    "\\<egg-unstaged-diff-section-map>\n"
    "\\[egg-diff-section-cmd-stage]:提交 文件/hunk  "
-   "\\[egg-diff-section-cmd-undo]:undo file/hunk  "
+   "\\[egg-diff-section-cmd-undo]:撤销操作 undo file/hunk  "
    "\\[egg-diff-section-cmd-visit-file-other-window]:查看文件和对应行\n"))
 
 (defconst egg-staged-diff-help-text
@@ -344,17 +344,17 @@ the index. \\{egg-wdir-diff-section-map}")
 (defconst egg-wdir-diff-help-text
   (egg-pretty-help-text
    "\\<egg-wdir-diff-section-map>\n"
-   "\\[egg-diff-section-cmd-undo]:undo file/hunk  "
+   "\\[egg-diff-section-cmd-undo]:撤销操作 undo file/hunk  "
    "\\[egg-diff-section-cmd-visit-file-other-window]:查看文件和对应行\n"))
 
 (defconst egg-stash-help-text
   (concat
-   (egg-text "■暂缓 部分快捷键■Stash:" 'egg-help-header-2) "\n"
+   (egg-text "■暂存 部分快捷键■Stash:" 'egg-help-header-2) "\n"
    (egg-pretty-help-text
     "\\<egg-stash-map>"
     "\\[egg-sb-buffer-show-stash]:载入详情  "
     ;; "\\[egg-section-cmd-toggle-hide-show]:显/隐 详情  "
-    "\\[egg-sb-buffer-apply-stash]:apply  "
+    "\\[egg-sb-buffer-apply-stash]:应用apply  "
     "\\[egg-sb-buffer-pop-stash]:pop and apply stash "
     "\\[egg-sb-buffer-drop-stash]:删除 stash  "
     )

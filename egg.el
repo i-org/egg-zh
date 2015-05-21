@@ -108,9 +108,6 @@
     (or (assq 'egg-global-mode minor-mode-alist)
 	(push '(egg-global-mode egg-global-mode-name) minor-mode-alist))))
 
-
-
-
 ;;(cl-macroexpand '(egg-text blah 'egg-text-3))
 
 
